@@ -1,0 +1,29 @@
+{
+  "name": "guess-mind",
+  "version": "1.0.0",
+  "description": "Realtime game built with SoketIO, Gulp &amp; Node",
+  "main": "index.js",
+  "repository": "https://github.com/kamogawa/guess-mind.git",
+  "author": "BEUMGOO <captain_kbg@naver.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "pug": "^3.0.0",
+    "socket.io": "^2.3.0"
+  },
+  "scripts": {
+    "dev:server": "nodemon --exec babel-node src/server.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
+  }
+}
