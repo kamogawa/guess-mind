@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-undef */
+import { handleMessageNotification } from "./chat"
+
 const socket = io("/");
 
 function sendMessage(message) {
@@ -9,11 +11,6 @@ function sendMessage(message) {
 
 function setNickName(nickname) {
   socket.emit("setNickname", { nickname })
-}
-
-function handleMessageNotification(data) {
-  const { message, nickname } = data;
-  console.log(`${nickname}: ${message}`);
 }
 
 socket.on("messageNotifi", handleMessageNotification)
