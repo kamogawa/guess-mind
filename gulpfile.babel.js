@@ -40,7 +40,7 @@ const js = () =>
       bro({
         transform: [
           babel.configure({
-            presets: ["@babel/preset-env"]
+            presets: ["@babel/preset-env"],
           }),
         ],
       })
