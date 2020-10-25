@@ -1,15 +1,17 @@
 import events from "./events";
 
 const socketController = (socket) => {
-  socket.on("newMessage", ({ message }) => {
-    socket.broadcast.emit("messageNotifi", {
-      message,
-      nickname: socket.nickname || "Anon",
-    });
-  });
+  const broadcast = (event, data) => socket.broadcast.emit(event, data);
+
   socket.on(events.setNickname, ({ nickname }) => {
     socket.nickname = nickname;
-    socket.broadcast.emit(events.newUser, { nickname });
+    broadcast(events.newUser, { nickname });
+  });
+  socket.on(events.disconnect, () => {
+    broadcast(events.disconnected, { nickname: socket.nickname });
+  });
+  socket.on(events.sendMsg, ({ message }) => {
+    broadcast(events.newMsg, { message, nickname: socket.nickname });
   });
 };
 
